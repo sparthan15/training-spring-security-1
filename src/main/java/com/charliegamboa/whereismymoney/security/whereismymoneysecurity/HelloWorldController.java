@@ -22,4 +22,22 @@ public class HelloWorldController {
         logger.info("User authenticated?: {}", auth.isAuthenticated());
         return "Yea !";
     }
+
+    @GetMapping("/public")
+    public String getPublicMessage(){
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        logger.info("User data: {}", auth.getPrincipal());
+        logger.info("User permissions: {}", auth.getAuthorities());
+        logger.info("User authenticated?: {}", auth.isAuthenticated());
+        return "Yea !";
+    }
+    @GetMapping("/admin")
+    public String getAdminMessage(){
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        logger.info("User data: {}", auth.getPrincipal());
+        logger.info("User permissions: {}", auth.getAuthorities());
+        logger.info("User authenticated?: {}", auth.isAuthenticated());
+        return "Yea !";
+    }
+
 }
